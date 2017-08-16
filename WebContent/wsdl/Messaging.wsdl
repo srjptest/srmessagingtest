@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.SRMessagingTest.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.SRMessagingTest.com" xmlns:intf="http://ws.SRMessagingTest.com" xmlns:tns1="http://Exception.SRMessagingTest.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.SRMessagingTest.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://Exception.SRMessagingTest.com"/>
+   <element name="setMessage1">
+    <complexType>
+     <sequence>
+      <element name="item" type="xsd:string"/>
+      <element name="cost" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMessage1Response">
+    <complexType>
+     <sequence>
+      <element name="setMessage1Return" type="impl:MessagingResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="MessagingResponse">
+    <sequence>
+     <element name="messageAccepted" type="xsd:boolean"/>
+     <element name="response" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="fault" type="tns1:MessagingException"/>
+   <element name="setMessage3">
+    <complexType>
+     <sequence>
+      <element name="item" type="xsd:string"/>
+      <element name="qty" type="xsd:double"/>
+      <element name="operation" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMessage3Response">
+    <complexType>
+     <sequence>
+      <element name="setMessage3Return" type="impl:MessagingResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMessage2">
+    <complexType>
+     <sequence>
+      <element name="item" type="xsd:string"/>
+      <element name="cost" type="xsd:double"/>
+      <element name="qty" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMessage2Response">
+    <complexType>
+     <sequence>
+      <element name="setMessage2Return" type="impl:MessagingResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exception.SRMessagingTest.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://ws.SRMessagingTest.com"/>
+   <complexType name="MessagingException">
+    <sequence/>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setMessage1Response">
+
+      <wsdl:part element="impl:setMessage1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="MessagingException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMessage2Response">
+
+      <wsdl:part element="impl:setMessage2Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMessage3Request">
+
+      <wsdl:part element="impl:setMessage3" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMessage2Request">
+
+      <wsdl:part element="impl:setMessage2" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMessage1Request">
+
+      <wsdl:part element="impl:setMessage1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMessage3Response">
+
+      <wsdl:part element="impl:setMessage3Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Messaging">
+
+      <wsdl:operation name="setMessage1">
+
+         <wsdl:input message="impl:setMessage1Request" name="setMessage1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setMessage1Response" name="setMessage1Response">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:MessagingException" name="MessagingException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMessage3">
+
+         <wsdl:input message="impl:setMessage3Request" name="setMessage3Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setMessage3Response" name="setMessage3Response">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:MessagingException" name="MessagingException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMessage2">
+
+         <wsdl:input message="impl:setMessage2Request" name="setMessage2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setMessage2Response" name="setMessage2Response">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:MessagingException" name="MessagingException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MessagingSoapBinding" type="impl:Messaging">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setMessage1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setMessage1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setMessage1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="MessagingException">
+
+            <wsdlsoap:fault name="MessagingException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMessage3">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setMessage3Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setMessage3Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="MessagingException">
+
+            <wsdlsoap:fault name="MessagingException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMessage2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setMessage2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setMessage2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="MessagingException">
+
+            <wsdlsoap:fault name="MessagingException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MessagingService">
+
+      <wsdl:port binding="impl:MessagingSoapBinding" name="Messaging">
+
+         <wsdlsoap:address location="http://localhost:8080/SRMessagingTest/services/Messaging"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

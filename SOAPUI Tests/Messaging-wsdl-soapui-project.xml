@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="80ec1dde-be94-45b8-a604-8ca17acb5208" activeEnvironment="Default" name="Messaging?wsdl" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="2ce72dd4-a949-4306-b02b-997121ae2f14" wsaVersion="NONE" name="MessagingSoapBinding" type="wsdl" bindingName="{http://ws.SRMessagingTest.com}MessagingSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/SRMessagingTest/services/Messaging?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/SRMessagingTest/services/Messaging?wsdl"><con:part><con:url>http://localhost:8080/SRMessagingTest/services/Messaging?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ws.SRMessagingTest.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.SRMessagingTest.com" xmlns:intf="http://ws.SRMessagingTest.com" xmlns:tns1="http://Exception.SRMessagingTest.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://ws.SRMessagingTest.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://Exception.SRMessagingTest.com"/>
+      <element name="setMessage2">
+        <complexType>
+          <sequence>
+            <element name="item" type="xsd:string"/>
+            <element name="cost" type="xsd:double"/>
+            <element name="qty" type="xsd:long"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="setMessage2Response">
+        <complexType>
+          <sequence>
+            <element name="setMessage2Return" type="impl:MessagingResponse"/>
+          </sequence>
+        </complexType>
+      </element>
+      <complexType name="MessagingResponse">
+        <sequence>
+          <element name="messageAccepted" type="xsd:boolean"/>
+          <element name="response" nillable="true" type="xsd:string"/>
+        </sequence>
+      </complexType>
+      <element name="fault" type="tns1:MessagingException"/>
+      <element name="setMessage3">
+        <complexType>
+          <sequence>
+            <element name="item" type="xsd:string"/>
+            <element name="qty" type="xsd:double"/>
+            <element name="operation" type="xsd:string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="setMessage3Response">
+        <complexType>
+          <sequence>
+            <element name="setMessage3Return" type="impl:MessagingResponse"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="setMessage1">
+        <complexType>
+          <sequence>
+            <element name="item" type="xsd:string"/>
+            <element name="cost" type="xsd:double"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="setMessage1Response">
+        <complexType>
+          <sequence>
+            <element name="setMessage1Return" type="impl:MessagingResponse"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+    <schema elementFormDefault="qualified" targetNamespace="http://Exception.SRMessagingTest.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://ws.SRMessagingTest.com"/>
+      <complexType name="MessagingException">
+        <sequence/>
+      </complexType>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="setMessage1Response">
+    <wsdl:part element="impl:setMessage1Response" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setMessage2Response">
+    <wsdl:part element="impl:setMessage2Response" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MessagingException">
+    <wsdl:part element="impl:fault" name="fault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setMessage3Request">
+    <wsdl:part element="impl:setMessage3" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setMessage2Request">
+    <wsdl:part element="impl:setMessage2" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setMessage3Response">
+    <wsdl:part element="impl:setMessage3Response" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setMessage1Request">
+    <wsdl:part element="impl:setMessage1" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Messaging">
+    <wsdl:operation name="setMessage2">
+      <wsdl:input message="impl:setMessage2Request" name="setMessage2Request"></wsdl:input>
+      <wsdl:output message="impl:setMessage2Response" name="setMessage2Response"></wsdl:output>
+      <wsdl:fault message="impl:MessagingException" name="MessagingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setMessage3">
+      <wsdl:input message="impl:setMessage3Request" name="setMessage3Request"></wsdl:input>
+      <wsdl:output message="impl:setMessage3Response" name="setMessage3Response"></wsdl:output>
+      <wsdl:fault message="impl:MessagingException" name="MessagingException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setMessage1">
+      <wsdl:input message="impl:setMessage1Request" name="setMessage1Request"></wsdl:input>
+      <wsdl:output message="impl:setMessage1Response" name="setMessage1Response"></wsdl:output>
+      <wsdl:fault message="impl:MessagingException" name="MessagingException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessagingSoapBinding" type="impl:Messaging">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="setMessage2">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="setMessage2Request">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setMessage2Response">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MessagingException">
+        <wsdlsoap:fault name="MessagingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setMessage3">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="setMessage3Request">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setMessage3Response">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MessagingException">
+        <wsdlsoap:fault name="MessagingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setMessage1">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="setMessage1Request">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setMessage1Response">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MessagingException">
+        <wsdlsoap:fault name="MessagingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessagingService">
+    <wsdl:port binding="impl:MessagingSoapBinding" name="Messaging">
+      <wsdlsoap:address location="http://localhost:8080/SRMessagingTest/services/Messaging"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint></con:endpoints><con:operation id="68a116a5-5737-4fb4-af78-b8cab378dfb9" isOneWay="false" action="" name="setMessage1" bindingOperationName="setMessage1" type="Request-Response" outputName="setMessage1Response" inputName="setMessage1Request" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4645d7b7-c5f0-4b35-923f-2c51f4cdd4d7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage1>
+         <ws:item>?</ws:item>
+         <ws:cost>?</ws:cost>
+      </ws:setMessage1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage1Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0a4ae9cc-6528-4d44-b1e3-7037e3cc716d" isOneWay="false" action="" name="setMessage2" bindingOperationName="setMessage2" type="Request-Response" outputName="setMessage2Response" inputName="setMessage2Request" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b8578311-d06d-4c4f-b03c-4056332e9e81" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage2>
+         <ws:item>?</ws:item>
+         <ws:cost>?</ws:cost>
+         <ws:qty>?</ws:qty>
+      </ws:setMessage2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage2Request"/></con:call></con:operation><con:operation id="20b01dc4-3962-462d-9fb8-3799a26681eb" isOneWay="false" action="" name="setMessage3" bindingOperationName="setMessage3" type="Request-Response" outputName="setMessage3Response" inputName="setMessage3Request" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3d862a8-7fd1-47a5-83fd-e6b8f8e9b01c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage3>
+         <ws:item>DOG</ws:item>
+         <ws:qty>10</ws:qty>
+         <ws:operation></ws:operation>
+      </ws:setMessage3>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage3Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="59db41f5-9fea-4eb7-9dc9-fd8b2df7ec40" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7fcab3ea-33c7-428f-b703-8ff1f670c2fa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="MessageType1" searchProperties="true"><con:settings/><con:testStep type="request" id="97411712-1401-4f7f-b825-7a6a48082c77" name="setMessage1 - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MessagingSoapBinding</con:interface><con:operation>setMessage1</con:operation><con:request name="setMessage1 - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="29f5aa50-366a-4020-bf51-777b143d6fc5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage1>
+         <ws:item>CAT</ws:item>
+         <ws:cost>50</ws:cost>
+      </ws:setMessage1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2711eac4-3845-4379-ab79-a966e1415005" name="SOAP Response"/><con:assertion type="Simple Contains" id="d88bb753-0d0c-4a5c-900a-dc9a1beecfaf" name="Contains"><con:configuration><token><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <setMessage1Response xmlns="http://ws.SRMessagingTest.com">
+         <setMessage1Return>
+            <messageAccepted>true</messageAccepted>
+            <response>Message processed successfully.</response>
+         </setMessage1Return>
+      </setMessage1Response>
+   </soapenv:Body>
+</soapenv:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage1Request"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f07df278-6e98-47c3-b075-163417d60fe1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="setMessage2" searchProperties="true"><con:settings/><con:testStep type="request" id="55efa060-4c3b-4059-9525-7f06e205565c" name="setMessage2 - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MessagingSoapBinding</con:interface><con:operation>setMessage2</con:operation><con:request name="setMessage2 - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7355b945-7fc8-438c-9634-63b71b510539"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage2>
+         <ws:item>DOG</ws:item>
+         <ws:cost>50</ws:cost>
+         <ws:qty>10</ws:qty>
+      </ws:setMessage2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="7e5e0350-f6b9-4c0a-9e02-a6ace7bd1235" name="SOAP Response"/><con:assertion type="Simple Contains" id="1b540b9c-61fd-49b3-a3a6-626049b87360" name="Contains"><con:configuration><token><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <setMessage2Response xmlns="http://ws.SRMessagingTest.com">
+         <setMessage2Return>
+            <messageAccepted>true</messageAccepted>
+            <response>Message processed successfully.</response>
+         </setMessage2Return>
+      </setMessage2Response>
+   </soapenv:Body>
+</soapenv:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage2Request"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8353788e-40b3-4c33-900b-2b550a9657cf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetMessage3" searchProperties="true"><con:settings/><con:testStep type="request" id="5ea1e9c8-e494-4101-b89d-b363e0242d2d" name="setMessage3 - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MessagingSoapBinding</con:interface><con:operation>setMessage3</con:operation><con:request name="setMessage3 - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b6503e5c-1573-4fbd-8eee-e22579b6e1d2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage3>
+         <ws:item>DOG</ws:item>
+         <ws:qty>10</ws:qty>
+         <ws:operation>ADD</ws:operation>
+      </ws:setMessage3>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="dc5afd54-a37d-471c-9d3b-80961a86a9e3" name="SOAP Response"/><con:assertion type="Simple Contains" id="103864f5-c6d8-408d-ac43-0d858196ffee" name="Contains"><con:configuration><token><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <setMessage3Response xmlns="http://ws.SRMessagingTest.com">
+         <setMessage3Return>
+            <messageAccepted>true</messageAccepted>
+            <response>Message processed successfully.</response>
+         </setMessage3Return>
+      </setMessage3Response>
+   </soapenv:Body>
+</soapenv:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage3Request"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="52b8ff93-0862-415a-9e54-2a85f7545fb5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetMessage3 invalid operation" searchProperties="true"><con:settings/><con:testStep type="request" id="4d3c5800-71a2-4aa4-aab0-39eeeef66f8f" name="setMessage3 - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MessagingSoapBinding</con:interface><con:operation>setMessage3</con:operation><con:request name="setMessage3 - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="c01d5856-94df-4fdc-8d31-944920aaa68a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/SRMessagingTest/services/Messaging</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.SRMessagingTest.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:setMessage3>
+         <ws:item>DOG</ws:item>
+         <ws:qty>10</ws:qty>
+         <ws:operation>GIBBERISH</ws:operation>
+      </ws:setMessage3>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b5efa456-952c-46ce-9912-8ebc4ac26045" name="SOAP Response"/><con:assertion type="Simple Contains" id="bdeaf604-ad89-4257-adf3-1d0b485ef4e2" name="Contains"><con:configuration><token><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <soapenv:Fault>
+         <faultcode>soapenv:Server.userException</faultcode>
+         <faultstring>com.SRMessagingTest.Exception.MessagingException: An invalid operation has been specified. Accepted operations are ADD, SUBTRACT and MULTIPLY.</faultstring>
+         <detail>
+            <ns1:fault xmlns:ns1="http://ws.SRMessagingTest.com"/>
+            <ns2:hostname xmlns:ns2="http://xml.apache.org/axis/">tpad</ns2:hostname>
+         </detail>
+      </soapenv:Fault>
+   </soapenv:Body>
+</soapenv:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.SRMessagingTest.com/Messaging/setMessage3Request"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

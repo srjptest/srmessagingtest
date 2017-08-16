@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MessagingService WSDL service -->
+
+  <service name="Messaging" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.SRMessagingTest.com"/>
+      <parameter name="wsdlServiceElement" value="MessagingService"/>
+      <parameter name="schemaQualified" value="http://Exception.SRMessagingTest.com,http://ws.SRMessagingTest.com"/>
+      <parameter name="wsdlServicePort" value="Messaging"/>
+      <parameter name="className" value="com.SRMessagingTest.ws.Messaging"/>
+      <parameter name="wsdlPortType" value="Messaging"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://ws.SRMessagingTest.com" xmlns:retNS="http://ws.SRMessagingTest.com" xmlns:rtns="http://ws.SRMessagingTest.com" name="setMessage1" qname="operNS:setMessage1" returnQName="retNS:setMessage1Return" returnType="rtns:MessagingResponse" soapAction="">
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cost" type="tns:double"/>
+        <fault xmlns:fns="http://ws.SRMessagingTest.com" xmlns:tns="http://Exception.SRMessagingTest.com" name="MessagingException" qname="fns:fault" class="com.SRMessagingTest.Exception.MessagingException" type="tns:MessagingException"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.SRMessagingTest.com" xmlns:retNS="http://ws.SRMessagingTest.com" xmlns:rtns="http://ws.SRMessagingTest.com" name="setMessage3" qname="operNS:setMessage3" returnQName="retNS:setMessage3Return" returnType="rtns:MessagingResponse" soapAction="">
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:qty" type="tns:double"/>
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:operation" type="tns:string"/>
+        <fault xmlns:fns="http://ws.SRMessagingTest.com" xmlns:tns="http://Exception.SRMessagingTest.com" name="MessagingException" qname="fns:fault" class="com.SRMessagingTest.Exception.MessagingException" type="tns:MessagingException"/>
+      </operation>
+      <operation xmlns:operNS="http://ws.SRMessagingTest.com" xmlns:retNS="http://ws.SRMessagingTest.com" xmlns:rtns="http://ws.SRMessagingTest.com" name="setMessage2" qname="operNS:setMessage2" returnQName="retNS:setMessage2Return" returnType="rtns:MessagingResponse" soapAction="">
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:item" type="tns:string"/>
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cost" type="tns:double"/>
+        <parameter xmlns:pns="http://ws.SRMessagingTest.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:qty" type="tns:long"/>
+        <fault xmlns:fns="http://ws.SRMessagingTest.com" xmlns:tns="http://Exception.SRMessagingTest.com" name="MessagingException" qname="fns:fault" class="com.SRMessagingTest.Exception.MessagingException" type="tns:MessagingException"/>
+      </operation>
+      <parameter name="allowedMethods" value="setMessage3 setMessage2 setMessage1"/>
+
+      <typeMapping xmlns:ns="http://ws.SRMessagingTest.com" qname="ns:MessagingResponse" type="java:com.SRMessagingTest.ws.MessagingResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://Exception.SRMessagingTest.com" qname="ns:MessagingException" type="java:com.SRMessagingTest.Exception.MessagingException" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
